@@ -20,4 +20,6 @@ func main() {
 	fmt.Println(c.Name)
 	fmt.Println(c.Modal)
 	fmt.Println(c.Color)
+	fmt.Printf("Car Struct Details ")
+	fmt.Println(c)
 }
