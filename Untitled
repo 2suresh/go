@@ -1,0 +1,15 @@
+function sayHello(name) {
+  var text = 'Hello ' + name;
+  var say = function() { console.log(text); }
+  say();
+}
+
+function trackingFun(callingFun) {
+   var count = 0;
+   return function() {
+      count = count + 1;
+      var callingFun();
+   }
+}
+
+trackingFun.bind(sayHello('Suresh'))
