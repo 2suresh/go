@@ -18,6 +18,12 @@ type TimeAndMaterial struct {
 	hourlyRate  int
 }
 
+type Advertisement struct {
+	adName     string
+	CPC        int
+	noOfClicks int
+}
+
 func (fb FixedBilling) calculate() int {
 	return fb.biddedAmount
 }
@@ -34,6 +40,14 @@ func (tm TimeAndMaterial) source() string {
 	return tm.projectName
 }
 
+func (a Advertisement) calculate() int {
+	return a.CPC * a.noOfClicks
+}
+
+func (a Advertisement) source() string {
+	return a.adName
+}
+
 func calculateNetIncome(ic []Income) {
 	var netincome int = 0
 	for _, income := range ic {
@@ -47,6 +61,8 @@ func main() {
 	project1 := FixedBilling{projectName: "Project 1", biddedAmount: 5000}
 	project2 := FixedBilling{projectName: "Project 2", biddedAmount: 10000}
 	project3 := TimeAndMaterial{projectName: "Project 3", noOfHours: 160, hourlyRate: 25}
-	incomeStreams := []Income{project1, project2, project3}
+	bannerAd := Advertisement{adName: "Banner Ad", CPC: 2, noOfClicks: 500}
+	popupAd := Advertisement{adName: "Popup Ad", CPC: 5, noOfClicks: 750}
+	incomeStreams := []Income{project1, project2, project3, bannerAd, popupAd}
 	calculateNetIncome(incomeStreams)
 }
