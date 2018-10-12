@@ -12,6 +12,9 @@ func getItem(a int) int {
 }
 
 func main() {
-	err := getItem(123)
-	fmt.Println(err)
+	// err := getItem(123)
+	// fmt.Println(err)
+	for i := 0; i < 5; i++ {
+		fmt.Print(i, " \t")
+	}
 }
